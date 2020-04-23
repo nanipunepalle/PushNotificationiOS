@@ -12,12 +12,15 @@ import Firebase
 import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate,UNUserNotificationCenterDelegate{
+    
+    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         if #available(iOS 10.0, *){
             UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -32,21 +35,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         }
         
         application.registerForRemoteNotifications()
-        
         return true
     }
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
-        
         let dataDict:[String: String] = ["token": fcmToken]
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-//        
-//    }
+
     
+    //This method is called when user clicks on notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("user clicked")
+        let user = response.notification.request.content.userInfo
+        print(user)
+        
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let notifiactionPage = storyBoard.instantiateViewController(identifier: "OtherView") as! OtherViewController
+//        print(self.window?.in)
+        self.window?.rootViewController = notifiactionPage
+//        rController.pushViewController(notifiactionPage, animated: true)
+//        self.window?.rootViewController = notifiactionPage
+        
+      // tell the app that we have finished processing the user’s action / response
+      completionHandler()
+    }
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

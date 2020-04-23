@@ -18,11 +18,10 @@ class ViewController: UIViewController {
                 print("Error fetching remote instance ID: \(error)")
             } else if let result = result {
                 print("Remote instance ID token: \(result.token)")
-                //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
-                //              print("Remote InstanceID token: \(result.token)")
             }
         }
-    } 
+    }
+    
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "HomeToNext", sender: self)
     }

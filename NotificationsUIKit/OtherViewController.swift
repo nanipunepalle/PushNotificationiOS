@@ -12,7 +12,7 @@ class OtherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("OtherView controller")
         // Do any additional setup after loading the view.
     }
     

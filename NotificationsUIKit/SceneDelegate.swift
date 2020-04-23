@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate{
 
     var window: UIWindow?
 
@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }
-    
   
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
