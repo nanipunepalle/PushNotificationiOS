@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>305840426853-aeht1then51sn09nlbgdp12kma341vh2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.305840426853-aeht1then51sn09nlbgdp12kma341vh2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAalAiQU4Y0PKKi-UwfLlz8rO-yGQ6Ml3M</string>
+	<key>GCM_SENDER_ID</key>
+	<string>305840426853</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fero.dev.ferofly</string>
+	<key>PROJECT_ID</key>
+	<string>notificationsdemo-7564a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>notificationsdemo-7564a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:305840426853:ios:260362a2ec165341bf5b8c</string>
+	<key>DATABASE_URL</key>
+	<string>https://notificationsdemo-7564a.firebaseio.com</string>
+</dict>
+</plist>

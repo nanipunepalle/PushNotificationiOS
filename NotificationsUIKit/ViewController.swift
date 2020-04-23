@@ -7,14 +7,26 @@
 //
 
 import UIKit
-
+import Firebase
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                //                self.instanceIDTokenMessage.text  = "Remote InstanceID token: \(result.token)"
+                //              print("Remote InstanceID token: \(result.token)")
+            }
+        }
+    } 
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "HomeToNext", sender: self)
     }
-
-
+    
+        
 }
 
